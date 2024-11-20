@@ -73,10 +73,10 @@ button {
 body {
 	background-image: linear-gradient(
 		0deg,
-		rgb(34, 34, 34),
+		rgb(81, 116, 239),
+		rgb(81, 116, 239),
 		rgb(222, 108, 80),
 		rgb(222, 108, 80),
-		#4dd3c5,
 		#4dd3c5
 	);
 	min-height: 100vh;
