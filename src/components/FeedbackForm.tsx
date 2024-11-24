@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { MAX_CHARACTERS } from "../lib/constants";
+import { HeaderProps } from "../lib/types";
 
-export default function FeedbackForm() {
+export default function FeedbackForm({ handleAddNewItem }: HeaderProps) {
 	const [text, setText] = useState("");
 	const characterCount = MAX_CHARACTERS - text.length;
 	const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -11,9 +12,15 @@ export default function FeedbackForm() {
 		}
 		return;
 	};
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		handleAddNewItem(text);
+	};
+
 	return (
-		<form className="form">
+		<form className="form" onSubmit={handleSubmit}>
 			<textarea
+				value={text}
 				onChange={handleOnChange}
 				id="feedback-textarea"
 				placeholder="placeholder"
@@ -26,7 +33,9 @@ export default function FeedbackForm() {
 			<div>
 				<p className="u-italic">{characterCount}</p>
 				<button>
-					<span>Submit</span>
+					<span>
+						{text.includes("#") ? "Submit" : "Include # to Submit"}
+					</span>
 				</button>
 			</div>
 		</form>

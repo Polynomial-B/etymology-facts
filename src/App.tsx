@@ -22,7 +22,6 @@ function App() {
 					throw new Error();
 				}
 				const data = await response.json();
-				console.log(data);
 			} catch (err) {
 				setErrorMessage("There was a problem: " + err);
 			}
@@ -30,9 +29,10 @@ function App() {
 		};
 		fetchData();
 	}, []);
-
+	let isHashtag = false;
 	const handleAddNewItem = (text: string) => {
 		if (text.includes("#")) {
+			isHashtag = true;
 			const companyName = text
 				.split(" ")
 				.find((word: string) => word.startsWith("#"))
@@ -57,6 +57,7 @@ function App() {
 				feedbackItems={feedbackItems}
 				isLoading={isLoading}
 				errorMessage={errorMessage}
+				handleAddNewItem={handleAddNewItem}
 			/>
 			<Sidebar />
 		</div>

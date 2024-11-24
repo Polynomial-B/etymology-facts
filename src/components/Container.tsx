@@ -6,10 +6,11 @@ export default function Container({
 	feedbackItems,
 	isLoading,
 	errorMessage,
+	handleAddNewItem,
 }: ContainerProps) {
 	return (
 		<main className="container">
-			<Header />
+			<Header handleAddNewItem={handleAddNewItem} />
 			<FeedbackList
 				feedbackItems={feedbackItems}
 				isLoading={isLoading}
