@@ -1,127 +1,28 @@
-import { TriangleUpIcon } from "@radix-ui/react-icons";
+import FeedbackItem from "./FeedbackItem";
+import Loading from "./Loading";
+import ErrorMessage from "./ErrorMessage";
+import { ContainerProps } from "../lib/types";
 
-export default function FeedbackList() {
+export default function FeedbackList({
+	feedbackItems,
+	isLoading,
+	errorMessage,
+}: ContainerProps): React.JSX.Element {
 	return (
 		<ol className="feedback-list">
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
-			<li className="feedback">
-				<button>
-					<TriangleUpIcon />
-					<span>300</span>
-				</button>
-				<div>
-					<p>M</p>
-				</div>
-				<div>
-					<p>Moo Moo</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Consectetur maxime ab suscipit ea aut totam!
-					</p>
-				</div>
-				<p>4d</p>
-			</li>
+			{isLoading && <Loading />}
+			{errorMessage ? (
+				<ErrorMessage message={errorMessage} />
+			) : (
+				feedbackItems.map((feedbackItem) => {
+					return (
+						<FeedbackItem
+							key={feedbackItem.id}
+							feedbackItem={feedbackItem}
+						/>
+					);
+				})
+			)}
 		</ol>
 	);
 }
