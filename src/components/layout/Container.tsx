@@ -1,6 +1,6 @@
-import { ContainerProps } from "../lib/types";
-import FeedbackList from "./FeedbackList";
-import Header from "./Header";
+import { ContainerProps } from "../../lib/types";
+import FeedbackList from "../feedback/FeedbackList";
+import Header from "../layout/Header";
 
 export default function Container({
 	feedbackItems,

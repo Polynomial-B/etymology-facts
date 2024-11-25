@@ -1,10 +1,10 @@
 import { TriangleUpIcon } from "@radix-ui/react-icons";
-import { FeedbackItemProps } from "../lib/types";
+import { FeedbackItemProps } from "../../lib/types";
 
 export default function FeedbackItem({
 	feedbackItem,
 }: FeedbackItemProps): React.JSX.Element {
-	const { upvoteCount, badgeInitials, companyName, text, daysAgo } =
+	const { upvoteCount, badgeInitials, language, text, daysAgo } =
 		feedbackItem;
 	return (
 		<li className="feedback">
@@ -16,10 +16,10 @@ export default function FeedbackItem({
 				<p>{badgeInitials}</p>
 			</div>
 			<div>
-				<p>{companyName}</p>
+				<p>{language}</p>
 				<p>{text}</p>
 			</div>
-			<p>{daysAgo === 0 ? "New" : daysAgo}</p>
+			<p>{daysAgo === 0 ? "New" : `${daysAgo}d`}</p>
 		</li>
 	);
 }

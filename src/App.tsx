@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Container from "./components/Container";
-import Footer from "./components/Footer";
+import Container from "./components/layout/Container";
+import Footer from "./components/layout/Footer";
 import Sidebar from "./components/Sidebar";
 import { exampleFeedbackItems } from "./lib/constants";
 import { FeedbackItemType } from "./lib/types";
@@ -29,19 +29,17 @@ function App() {
 		};
 		fetchData();
 	}, []);
-	let isHashtag = false;
 	const handleAddNewItem = (text: string) => {
 		if (text.includes("#")) {
-			isHashtag = true;
-			const companyName = text
+			const language = text
 				.split(" ")
 				.find((word: string) => word.startsWith("#"))
 				?.substring(1);
-			if (!companyName) return;
+			if (!language) return;
 			const newItem: FeedbackItemType = {
 				id: new Date().getTime(), // not ideal, but we'll go with it for now...
-				companyName: companyName,
-				badgeInitials: companyName.substring(0, 1).toUpperCase(),
+				language: language,
+				badgeInitials: language.substring(0, 1).toUpperCase(),
 				daysAgo: 0,
 				text: text,
 				upvoteCount: 0,

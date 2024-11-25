@@ -323,6 +323,10 @@ form button span::selection {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
+form .button--no-submit {
+	background-color: #ffffff9e;
+}
+
 /* FEEDBACKS */
 .feedback-list {
 	height: 573px;

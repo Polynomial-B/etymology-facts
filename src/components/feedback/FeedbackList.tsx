@@ -1,7 +1,7 @@
 import FeedbackItem from "./FeedbackItem";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
-import { ContainerProps } from "../lib/types";
+import Loading from "../Loading";
+import ErrorMessage from "../ErrorMessage";
+import { ContainerProps } from "../../lib/types";
 
 export default function FeedbackList({
 	feedbackItems,

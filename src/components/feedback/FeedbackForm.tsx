@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { MAX_CHARACTERS } from "../lib/constants";
-import { HeaderProps } from "../lib/types";
+import { MAX_CHARACTERS } from "../../lib/constants";
+import { HeaderProps } from "../../lib/types";
 
 export default function FeedbackForm({ handleAddNewItem }: HeaderProps) {
 	const [text, setText] = useState("");
 	const characterCount = MAX_CHARACTERS - text.length;
+	const containsHashtag: boolean = text.includes("#");
 	const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		const newText = e.target.value;
 		if (characterCount > 0) {
@@ -32,9 +33,9 @@ export default function FeedbackForm({ handleAddNewItem }: HeaderProps) {
 			</label>
 			<div>
 				<p className="u-italic">{characterCount}</p>
-				<button>
+				<button className={!containsHashtag ? "button--no-submit" : ""}>
 					<span>
-						{text.includes("#") ? "Submit" : "Include # to Submit"}
+						{containsHashtag ? "Submit" : "Include # to Submit"}
 					</span>
 				</button>
 			</div>

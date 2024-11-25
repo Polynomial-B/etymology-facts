@@ -2,7 +2,7 @@ export type FeedbackItemType = {
   id: number;
   upvoteCount: number;
   badgeInitials: string;
-  companyName: string;
+  language: string;
   text: string;
   daysAgo: number;
 };
@@ -17,5 +17,5 @@ export type ContainerProps = {
   handleAddNewItem?: (text: string) => void;
 };
 export type HeaderProps = {
-  handleAddNewItem: (text: string) => void;
+  handleAddNewItem?: (text: string) => void;
 };
