@@ -19,3 +19,7 @@ export type ContainerProps = {
 export type HeaderProps = {
   handleAddNewItem?: (text: string) => void;
 };
+export type SidebarProps = {
+  handleSelectLanguage: (language: string) => void;
+  languageList: string[];
+};

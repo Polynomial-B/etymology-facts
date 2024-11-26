@@ -10,6 +10,13 @@ function App() {
 		useState<FeedbackItemType[]>(exampleFeedbackItems);
 	const [isLoading, setIsLoading] = useState(true);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [selectedLanguage, setSelectedLanguage] = useState<string>("");
+
+	const filteredFeedbackItems = selectedLanguage
+		? feedbackItems.filter(
+				(feedbackItem) => feedbackItem.language === selectedLanguage
+		  )
+		: feedbackItems;
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -53,16 +60,23 @@ function App() {
 			return array.indexOf(language) === index;
 		});
 
+	const handleSelectLanguage = (language: string) => {
+		setSelectedLanguage(language);
+	};
+
 	return (
 		<div className="app">
 			<Footer />
 			<Container
-				feedbackItems={feedbackItems}
+				feedbackItems={filteredFeedbackItems}
 				isLoading={isLoading}
 				errorMessage={errorMessage}
 				handleAddNewItem={handleAddNewItem}
 			/>
-			<Sidebar languageList={languageList} />
+			<Sidebar
+				languageList={languageList}
+				handleSelectLanguage={handleSelectLanguage}
+			/>
 		</div>
 	);
 }
