@@ -1,15 +1,11 @@
-export default function Sidebar() {
+import SidebarItem from "./SidebarItem";
+
+export default function Sidebar({ languageList }: { languageList: string[] }) {
 	return (
 		<ul className="hashtags">
-			<li>
-				<button>#Element</button>
-			</li>
-			<li>
-				<button>#Element</button>
-			</li>
-			<li>
-				<button>#Element</button>
-			</li>
+			{languageList.map((item: string, i: number) => (
+				<SidebarItem item={item} index={i} />
+			))}
 		</ul>
 	);
 }

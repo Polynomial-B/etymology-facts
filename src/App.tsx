@@ -47,6 +47,11 @@ function App() {
 			setFeedbackItems([...feedbackItems, newItem]);
 		} else return;
 	};
+	const languageList = feedbackItems
+		.map((item) => item.language)
+		.filter((language, index, array) => {
+			return array.indexOf(language) === index;
+		});
 
 	return (
 		<div className="app">
@@ -57,7 +62,7 @@ function App() {
 				errorMessage={errorMessage}
 				handleAddNewItem={handleAddNewItem}
 			/>
-			<Sidebar />
+			<Sidebar languageList={languageList} />
 		</div>
 	);
 }
