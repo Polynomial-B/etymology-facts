@@ -1,6 +1,5 @@
 export default function SidebarItem({
 	item,
-	index,
 	handleSelectLanguage,
 }: {
 	item: string;
@@ -8,7 +7,7 @@ export default function SidebarItem({
 	handleSelectLanguage: (language: string) => void;
 }) {
 	return (
-		<li key={index}>
+		<li>
 			<button onClick={() => handleSelectLanguage(item)}># {item}</button>
 		</li>
 	);

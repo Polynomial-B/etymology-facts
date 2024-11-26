@@ -9,6 +9,7 @@ export default function Sidebar({
 		<ul className="hashtags">
 			{languageList.map((item: string, i: number) => (
 				<SidebarItem
+					key={i + item}
 					item={item}
 					index={i}
 					handleSelectLanguage={handleSelectLanguage}
