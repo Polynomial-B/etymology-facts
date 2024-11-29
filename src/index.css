@@ -1,4 +1,3 @@
-/* RESET */
 *,
 *::before,
 *::after {
@@ -21,34 +20,16 @@ textarea {
 	font: inherit;
 	border: initial;
 	resize: none;
-	outline: initial; /* create alternative for focus state */
+	outline: initial;
 }
 
 button {
 	font: inherit;
 	border: initial;
-	outline: initial; /* create alternative for focus state */
+	outline: initial;
 	background-color: initial;
 }
 
-/* UTILITIES */
-.u-bold {
-	font-weight: 600;
-}
-
-.u-medium {
-	font-weight: 500;
-}
-
-.u-italic {
-	font-style: italic;
-}
-
-.u-transparent {
-	color: rgba(255, 255, 255, 0.8);
-}
-
-/* KEYFRAMES */
 @keyframes intro {
 	0% {
 		transform: scale(0.8);
@@ -69,7 +50,6 @@ button {
 	}
 }
 
-/* BASE */
 body {
 	background-image: linear-gradient(
 		0deg,
@@ -84,16 +64,9 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	scrollbar-width: none; /* Firefox */
+	scrollbar-width: none;
 }
 
-.body::-webkit-scrollbar {
-	/* Chrome, Safari, Edge, Opera, All browsers on iOS */
-	display: none;
-}
-
-/* APP */
 .app {
 	position: relative;
 	display: flex;
@@ -101,7 +74,6 @@ body {
 	height: 850px;
 }
 
-/* CONTAINER */
 .container {
 	width: 715px;
 	height: 100%;
@@ -110,7 +82,6 @@ body {
 	animation: intro 0.4s;
 }
 
-/* HEADER */
 header {
 	height: 277px;
 	background-color: #121618;
@@ -137,8 +108,6 @@ header {
 .pattern::selection {
 	background-color: initial;
 }
-
-/* HEADINGS */
 h1 {
 	font-weight: 700;
 	font-size: 36px;
@@ -147,14 +116,10 @@ h1 {
 	color: rgba(255, 255, 255, 0.93);
 	user-select: none;
 }
-
-h1::selection,
-h1 *::selection {
-	color: rgba(255, 255, 255, 0.85);
-	background-color: rgba(255, 255, 255, 0.05);
+h1 > span {
+	font-style: italic;
+	opacity: 0.85;
 }
-
-/* LOGO */
 .logo {
 	height: 27.5px;
 	user-select: none;
@@ -185,7 +150,6 @@ h1 *::selection {
 	height: 30px;
 }
 
-/* FORM */
 .form {
 	margin-top: 20px;
 	height: 123px;
@@ -204,14 +168,6 @@ h1 *::selection {
 
 .form:focus-within {
 	outline: 2px solid rgba(255, 255, 255, 0.125);
-}
-
-.form--invalid {
-	box-shadow: 0 0 0 2px #c13554;
-}
-
-.form--valid {
-	box-shadow: 0 0 0 2px #2c428a;
 }
 
 textarea {
@@ -268,7 +224,6 @@ form div:last-child {
 	margin-top: -8px;
 }
 
-/* COUNTER */
 form div:last-child p {
 	font-weight: 500;
 	font-size: 13px;
@@ -282,7 +237,6 @@ form div:last-child p > *::selection {
 	background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* SUBMIT BTN */
 form button {
 	color: #161921;
 	font-size: 12px;
@@ -327,40 +281,34 @@ form .button--no-submit {
 	background-color: #ffffff9e;
 }
 
-/* FEEDBACKS */
 .feedback-list {
 	height: 573px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	/* background-color: #F3F6F8; */
+
 	background-color: #f7f8f9;
 
-	scrollbar-color: #979ca0 #dbdfe4; /* Firefox */
-	scrollbar-width: thin; /* Firefox */
+	scrollbar-color: #979ca0 #dbdfe4;
+	scrollbar-width: thin;
 }
 
 .feedback-list::-webkit-scrollbar {
-	/* Chrome, Safari, Edge, Opera, All browsers on iOS */
 	width: 7px;
 }
 
 .feedback-list::-webkit-scrollbar-track {
-	/* Chrome, Safari, Edge, Opera, All browsers on iOS */
 	background-color: #dbdfe4;
 }
 
 .feedback-list::-webkit-scrollbar-thumb {
-	/* Chrome, Safari, Edge, Opera, All browsers on iOS */
 	background-color: #979ca0;
 	transition: all 0.2s;
 }
 
 .feedback-list::-webkit-scrollbar-thumb:hover {
-	/* Chrome, Safari, Edge, Opera, All browsers on iOS */
 	background-color: #787c80;
 }
 
-/* FEEDBACK ITEM */
 .feedback {
 	display: grid;
 	grid-template-columns: 40px 85px 6fr 1fr;
@@ -377,12 +325,6 @@ form .button--no-submit {
 .feedback--expand {
 	height: 100px;
 	background-color: #fff;
-}
-
-.feedback--expand > div:nth-child(3) > p:last-child {
-	-webkit-line-clamp: initial !important;
-	-webkit-box-orient: initial !important;
-	overflow: initial !important;
 }
 
 .feedback *::selection {
@@ -463,7 +405,6 @@ form .button--no-submit {
 
 	display: -webkit-box;
 	max-width: 100%;
-	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -475,7 +416,6 @@ form .button--no-submit {
 	transition: all 0.2s;
 }
 
-/* UPVOTE BTN */
 .feedback > button {
 	cursor: pointer;
 	height: 40px;
@@ -519,7 +459,6 @@ form .button--no-submit {
 	margin-top: -1px;
 }
 
-/* HASHTAGS */
 .hashtags {
 	position: absolute;
 	right: -137px;
@@ -531,7 +470,6 @@ form .button--no-submit {
 	margin-bottom: 11px;
 }
 
-/* HASHTAG */
 .hashtags li button {
 	align-self: flex-start;
 	font-size: 13px;
@@ -558,33 +496,12 @@ form .button--no-submit {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* FOOTER */
 .footer {
 	position: absolute;
-	transform: rotate(-90deg);
-	left: -225px;
-	bottom: 174px;
-}
-
-/* COPYRIGHT */
-.footer > small {
-	color: #a6adb5;
-	font-size: 11px;
-}
-
-.footer > small *::selection {
-	background-color: rgba(255, 255, 255, 0.1);
-}
-
-.footer > small > p {
+	padding: 0 15px;
 	opacity: 0.4;
 }
 
-.footer > small > p > a {
-	text-decoration: underline;
-}
-
-/* SPINNER */
 .spinner {
 	position: absolute;
 	left: 50%;
@@ -593,19 +510,10 @@ form .button--no-submit {
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
-	border-top: 7px solid #e2e7e9;
-	border-right: 7px solid #e2e7e9;
-	border-bottom: 7px solid #e2e7e9;
-	border-left: 7px solid #ccd1d3;
+	border: 7px solid #e2e7e9;
 	animation: spinner 1s infinite linear;
 }
 
-h1 > span {
-	font-style: italic;
-	opacity: 0.85;
-}
-
-/* MEDIA QUERIES */
 @media (max-height: 925px) {
 	body {
 		padding: 60px 0;
@@ -647,18 +555,6 @@ h1 > span {
 		width: 100%;
 		border-radius: 0;
 	}
-
-	.feedback__badge {
-		min-width: 49px;
-	}
-
-	.feedback__content {
-		padding-right: 25px;
-	}
-
-	.feedback__date {
-		margin-left: auto;
-	}
 }
 
 @media (max-width: 525px) {
@@ -690,13 +586,5 @@ h1 > span {
 		height: initial;
 		padding-top: 10px;
 		padding-bottom: 10px;
-	}
-
-	.feedback__date {
-		display: none;
-	}
-
-	.footer {
-		padding: 0 15px;
 	}
 }
