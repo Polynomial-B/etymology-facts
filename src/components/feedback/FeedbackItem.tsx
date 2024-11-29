@@ -10,16 +10,23 @@ export default function FeedbackItem({
 	const { upvoteCount, badgeInitials, language, text, daysAgo } =
 		feedbackItem;
 
+	const handleLike = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		setLike((prev) => ++prev);
+		e.stopPropagation();
+	};
 	return (
-		<li className={`feedback ${open ? "feedback--expand" : ""}`}>
-			<button onClick={() => setLike((prev) => ++prev)}>
+		<li
+			className={`feedback ${open ? "feedback--expand" : ""}`}
+			onClick={() => setOpen((prev) => !prev)}
+		>
+			<button onClick={(e) => handleLike(e)}>
 				<TriangleUpIcon />
 				<span>{like}</span>
 			</button>
 			<div>
 				<p>{badgeInitials}</p>
 			</div>
-			<div onClick={() => setOpen((prev) => !prev)}>
+			<div>
 				<p>{language}</p>
 				<p>{text}</p>
 			</div>
