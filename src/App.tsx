@@ -52,7 +52,7 @@ function App() {
 		fetchData();
 	}, []);
 	const handleAddNewItem = (text: string) => {
-		if (text.includes("#")) {
+		if (text.includes("#") && text.length >= 2) {
 			const language = text
 				.split(" ")
 				.find((word: string) => word.startsWith("#"))
