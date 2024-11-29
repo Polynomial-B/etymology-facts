@@ -12,6 +12,7 @@ export default function FeedbackItem({
 
 	const handleLike = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		setLike((prev) => ++prev);
+		e.currentTarget.disabled = true;
 		e.stopPropagation();
 	};
 	return (
