@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import Sidebar from "./components/Sidebar";
@@ -12,11 +12,26 @@ function App() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [selectedLanguage, setSelectedLanguage] = useState<string>("");
 
-	const filteredFeedbackItems = selectedLanguage
-		? feedbackItems.filter(
-				(feedbackItem) => feedbackItem.language === selectedLanguage
-		  )
-		: feedbackItems;
+	const filteredFeedbackItems = useMemo(
+		() =>
+			selectedLanguage
+				? feedbackItems.filter(
+						(feedbackItem) =>
+							feedbackItem.language === selectedLanguage
+				  )
+				: feedbackItems,
+		[feedbackItems, selectedLanguage]
+	);
+
+	const languageList = useMemo(
+		() =>
+			feedbackItems
+				.map((item) => item.language)
+				.filter((language, index, array) => {
+					return array.indexOf(language) === index;
+				}),
+		[feedbackItems]
+	);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -54,11 +69,6 @@ function App() {
 			setFeedbackItems([...feedbackItems, newItem]);
 		} else return;
 	};
-	const languageList = feedbackItems
-		.map((item) => item.language)
-		.filter((language, index, array) => {
-			return array.indexOf(language) === index;
-		});
 
 	const handleSelectLanguage = (language: string) => {
 		setSelectedLanguage(language);
