@@ -10,16 +10,15 @@ export type FeedbackItemProps = {
   feedbackItem: FeedbackItemType;
 };
 
-export type ContainerProps = {
-  feedbackItems: FeedbackItemType[];
-  isLoading: boolean;
-  errorMessage: string;
-  handleAddNewItem?: (text: string) => void;
-};
 export type HeaderProps = {
   handleAddNewItem?: (text: string) => void;
 };
-export type SidebarProps = {
-  handleSelectLanguage: (language: string) => void;
+
+export type FeedbackContextType = {
+  isLoading: boolean;
+  errorMessage: string;
   languageList: string[];
+  handleAddNewItem: (text: string) => void;
+  filteredFeedbackItems: FeedbackItemType[];
+  handleSelectLanguage: (language: string) => void;
 };

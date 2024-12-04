@@ -1,10 +1,8 @@
-import { SidebarProps } from "../lib/types";
+import { useFeedbackContext } from "../lib/hooks";
 import SidebarItem from "./SidebarItem";
 
-export default function Sidebar({
-	languageList,
-	handleSelectLanguage,
-}: SidebarProps) {
+export default function Sidebar() {
+	const { languageList, handleSelectLanguage } = useFeedbackContext();
 	return (
 		<ul className="hashtags">
 			{languageList.map((item: string, i: number) => (
