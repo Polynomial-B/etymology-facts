@@ -1,6 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { FeedbackContextType, FeedbackItemType } from "../../lib/types";
-import { exampleFeedbackItems } from "../../lib/constants";
+import { FeedbackContextType, FeedbackItemType } from "../lib/types";
+import { exampleFeedbackItems } from "./../lib/constants";
 
 export const FeedbackContext = createContext<FeedbackContextType | null>(null);
 
