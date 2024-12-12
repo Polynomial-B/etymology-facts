@@ -22,3 +22,15 @@ export type FeedbackContextType = {
   filteredFeedbackItems: FeedbackItemType[];
   handleSelectLanguage: (language: string) => void;
 };
+
+export type StoreType = {
+  feedbackItems: FeedbackItemType;
+  isLoading: boolean;
+  errorMessage: string;
+  selectedLanguage: string;
+  getLanguageList: () => string[];
+  getFilteredFeedbackItems: () => FeedbackItemType[];
+  handleAddNewItem: (text: string) => Promise<void>;
+  handleSelectLanguage: (language: string) => void;
+  fetchData: () => Promise<void>;
+};

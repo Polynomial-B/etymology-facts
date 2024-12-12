@@ -16,6 +16,7 @@ export default function FeedbackForm({ handleAddNewItem }: HeaderProps) {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		handleAddNewItem(text);
+		setText("");
 	};
 
 	return (

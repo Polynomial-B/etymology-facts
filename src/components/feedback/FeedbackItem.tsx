@@ -7,8 +7,7 @@ export default function FeedbackItem({
 }: FeedbackItemProps): React.JSX.Element {
 	const [open, setOpen] = useState<boolean>(false);
 	const [like, setLike] = useState(feedbackItem.upvoteCount);
-	const { upvoteCount, badgeInitials, language, text, daysAgo } =
-		feedbackItem;
+	const { badgeInitials, language, text, daysAgo } = feedbackItem;
 
 	const handleLike = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		setLike((prev) => ++prev);

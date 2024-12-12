@@ -2,10 +2,12 @@ import Logo from "../Logo";
 import PageHeading from "../PageHeading";
 import FeedbackForm from "../feedback/FeedbackForm";
 import Background from "../Background";
-import { useFeedbackContext } from "../../lib/hooks";
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore";
 
 export default function Header() {
-	const { handleAddNewItem } = useFeedbackContext();
+	const handleAddNewItem = useFeedbackItemsStore(
+		(state) => state.handleAddNewItem
+	);
 	return (
 		<header>
 			<Background />

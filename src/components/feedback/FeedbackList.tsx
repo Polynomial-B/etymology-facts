@@ -1,11 +1,15 @@
 import FeedbackItem from "./FeedbackItem";
 import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
-import { useFeedbackContext } from "../../lib/hooks";
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore";
+import { FeedbackItemType } from "../../lib/types";
 
 export default function FeedbackList(): React.JSX.Element {
-	const { filteredFeedbackItems, isLoading, errorMessage } =
-		useFeedbackContext();
+	const filteredFeedbackItems = useFeedbackItemsStore((state) =>
+		state.getFilteredFeedbackItems()
+	);
+	const isLoading = useFeedbackItemsStore((state) => state.isLoading);
+	const errorMessage = useFeedbackItemsStore((state) => state.errorMessage);
 
 	return (
 		<ol className="feedback-list">
@@ -13,7 +17,7 @@ export default function FeedbackList(): React.JSX.Element {
 			{errorMessage ? (
 				<ErrorMessage message={errorMessage} />
 			) : (
-				filteredFeedbackItems.map((feedbackItem) => {
+				filteredFeedbackItems.map((feedbackItem: FeedbackItemType) => {
 					return (
 						<FeedbackItem
 							key={feedbackItem.id}
