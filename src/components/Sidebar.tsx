@@ -5,8 +5,8 @@ export default function Sidebar() {
 	const languageList = useFeedbackItemsStore(
 		(state) => state.getLanguageList
 	);
-	const handleSelectLanguage = useFeedbackItemsStore((state) =>
-		state.handleSelectLanguage()
+	const handleSelectLanguage = useFeedbackItemsStore(
+		(state) => state.handleSelectLanguage
 	);
 	return (
 		<ul className="hashtags">
