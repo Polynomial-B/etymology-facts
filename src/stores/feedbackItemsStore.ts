@@ -14,14 +14,14 @@ export const useFeedbackItemsStore = create((set, get) => ({
         return array.indexOf(language) === index;
       });
   },
-  getFilteredFeedbackItems: () => {
-    const state = get();
-    return state.selectedLanguage
-      ? state.feedbackItems.filter(
-          (feedbackItem) => feedbackItem.language === state.selectedLanguage
-        )
-      : state.feedbackItems;
-  },
+  // getFilteredFeedbackItems: () => {
+  //   const state = get();
+  //   return state.selectedLanguage
+  //     ? state.feedbackItems.filter(
+  //         (feedbackItem) => feedbackItem.language === state.selectedLanguage
+  //       )
+  //     : state.feedbackItems;
+  // },
 
   handleAddNewItem: (text: string) => {
     if (text.includes("#") && text.length >= 3) {
