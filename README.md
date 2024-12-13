@@ -1,10 +1,12 @@
 ## Goal
 
 To create a message board where you can post etymology facts, using a hashtag system that will allow you to filter your facts by language.
+You can add a comment and you can 'upvote' any comment (currently no local storage or database has been added for persisting data).
 
 ## Build
 
-This was built using React and TypeScript, making use of Radix-UI for the upvote button.
+This was built using React and TypeScript.
+Initially I implemented useContext and as it was a small project this would have been sufficient, however I decided to add Zustand just for fun. 
 
 ## Screenshots
 
@@ -17,6 +19,7 @@ This was built using React and TypeScript, making use of Radix-UI for the upvote
 - JavaScript
 - TypeScript
 - React
+- Zustand
 - HTML
 - CSS
 - Radix-UI
@@ -36,5 +39,5 @@ Currently the upvote feature is only a visual feature. I would like to implement
 ## Accreditations
 
 - ByteGrad: for the teaching resources and CSS styling.
-- Flaticon.com : for the icons
-- Freepik.com : for the 'texture' background used in the header.
+- Flaticon.com: for the icons
+- Freepik.com: for the 'texture' background used in the header.
