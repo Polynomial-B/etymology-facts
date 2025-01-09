@@ -6,7 +6,7 @@ You can add a comment and you can 'upvote' any comment (currently no local stora
 ## Build
 
 This was built using React and TypeScript.
-Initially I implemented useContext and as it was a small project this would have been sufficient, however I decided to add Zustand just for fun. 
+Initially I implemented useContext and as it was a small project this would have been sufficient, however I decided to add Zustand for the learning experience. 
 
 ## Screenshots
 
@@ -34,7 +34,7 @@ Initially I implemented useContext and as it was a small project this would have
 
 ## Future Adaptations
 
-Currently the upvote feature is only a visual feature. I would like to implement including a backend and being able to actually save the data. I will likely do this using MongoDB as hosting this information wouldn't be difficult, especially if I'm using Mongoose as schema validation. For the incomplexity of the data, using a noSQL database would be sufficient here. Also, hosting with MongoDB is cheaper that using a SQL database and hosting through something like Heroku.
+Currently the upvote feature is only a visual feature. I would like to implement including a backend and being able to actually save the data. I will likely do this using MongoDB, Express and Node.js. For the simplicity of the data used, I could rely on a noSQL database. Also, hosting with MongoDB is cheaper that using a SQL database and hosting through something like Heroku.
 
 ## Accreditations
 
